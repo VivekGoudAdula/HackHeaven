@@ -80,7 +80,7 @@ const TeamSection = () => {
   return (
     <section className="py-12 md:py-20 bg-gray-800">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-8 md:mb-12">
+        <div className="text-center mb-6 md:mb-10 lg:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 gradient-text">Core Team</h2>
         </div>
 
@@ -106,8 +106,8 @@ const TeamSection = () => {
           </div>
         </div>
 
-        {/* Tech & Event Leads */}
-        <div className="mt-12 md:mt-16">
+        {/* Technical Team */}
+        <div className="mt-16 md:mt-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-2 sm:px-4">
             {technicalTeam.map((member, index) => (
               <div key={index} className="w-full transform transition-all duration-300 hover:scale-[1.02]">
@@ -128,8 +128,8 @@ const TeamSection = () => {
           </div>
         </div>
 
-        {/* Community & Documentation */}
-        <div className="mt-12 md:mt-16">
+        {/* Community Team */}
+        <div className="mt-16 md:mt-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-2 sm:px-4">
             {communityTeam.map((member, index) => (
               <div key={index} className="w-full transform transition-all duration-300 hover:scale-[1.02]">
