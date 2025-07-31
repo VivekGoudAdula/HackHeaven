@@ -69,7 +69,7 @@ const TeamSection = () => {
       linkedin: 'https://www.linkedin.com/in/sreesha-thummalapalli-6029ab335?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app'
     },
     {
-      name: 'Sai Siddha Gangadhar',
+      name: 'Sai Gangadhar',
       role: 'Documentation Lead',
       description: 'Maintains records, certificates, attendance, and event reports.',
       avatar: sidharthImg,
@@ -78,17 +78,17 @@ const TeamSection = () => {
   ];
 
   return (
-    <section className="py-12 md:py-20 bg-gray-800">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-8 md:mb-12">
+    <section className="py-8 md:py-16 lg:py-20 bg-gray-800 min-h-screen overflow-x-hidden">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6">
+        <div className="text-center mb-6 sm:mb-8 md:mb-12 px-2">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 gradient-text">Core Team</h2>
         </div>
 
         {/* Leadership Team */}
-        <div className="mt-8 md:mt-12">
-          <div className="flex flex-wrap justify-center gap-12 sm:gap-18 md:gap-24 max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="mt-6 sm:mt-8 md:mt-12">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 max-w-6xl mx-auto px-2 sm:px-4">
             {leadershipTeam.map((member, index) => (
-              <div key={index} className="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] transform transition-all duration-300 hover:scale-[1.02] flex justify-center">
+              <div key={index} className="w-full xs:w-[calc(100%-2rem)] sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-2rem)] xl:w-[calc(33.333%-3rem)] transform transition-all duration-300 hover:scale-[1.02] flex justify-center mb-4 sm:mb-6 md:mb-8">
                 <ProfileCard
                   name={member.name}
                   title={member.role}
@@ -107,10 +107,10 @@ const TeamSection = () => {
         </div>
 
         {/* Tech & Event Leads */}
-        <div className="mt-12 md:mt-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-2 sm:px-4">
+        <div className="mt-6 sm:mt-8 md:mt-12">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 max-w-6xl mx-auto px-2 sm:px-4">
             {technicalTeam.map((member, index) => (
-              <div key={index} className="w-full transform transition-all duration-300 hover:scale-[1.02]">
+              <div key={index} className="w-full xs:w-[calc(100%-2rem)] sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-2rem)] xl:w-[calc(33.333%-3rem)] transform transition-all duration-300 hover:scale-[1.02] flex justify-center mb-4 sm:mb-6 md:mb-8">
                 <ProfileCard
                   name={member.name}
                   title={member.role}
@@ -129,10 +129,10 @@ const TeamSection = () => {
         </div>
 
         {/* Community & Documentation */}
-        <div className="mt-12 md:mt-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-2 sm:px-4">
+        <div className="mt-6 sm:mt-8 md:mt-12 pb-8 sm:pb-12 md:pb-16">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 max-w-6xl mx-auto px-2 sm:px-4">
             {communityTeam.map((member, index) => (
-              <div key={index} className="w-full transform transition-all duration-300 hover:scale-[1.02]">
+              <div key={index} className="w-full xs:w-[calc(100%-2rem)] sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-2rem)] xl:w-[calc(33.333%-3rem)] transform transition-all duration-300 hover:scale-[1.02] flex justify-center mb-4 sm:mb-6 md:mb-8">
                 <ProfileCard
                   name={member.name}
                   title={member.role}

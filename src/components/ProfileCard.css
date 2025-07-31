@@ -346,11 +346,74 @@
   }
 }
 
-@media (max-width: 768px) {
+/* Mobile-first responsive styles */
+.pc-card-wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  touch-action: pan-y; /* Better touch scrolling */
+}
+
+.pc-card {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 0.8;
+  max-height: 500px;
+  margin: 0 auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  transform: translate3d(0, 0, 0); /* Hardware acceleration */
+  backface-visibility: hidden; /* Prevent flickering */
+  perspective: 1000px;
+  will-change: transform; /* Optimize animations */
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
   .pc-card {
-    height: 70svh;
-    max-height: 450px;
+    aspect-ratio: 0.85;
+    max-height: 420px;
   }
+  
+  .pc-card-wrapper::before {
+    filter: contrast(1) saturate(1.5) blur(20px);
+    transform: scale(0.9) translate3d(0, 0, 0.1px);
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 400px) {
+  .pc-card {
+    aspect-ratio: 0.9;
+    max-height: 380px;
+  }
+}
+
+/* Disable hover effects on touch devices */
+@media (hover: none) {
+  .pc-card-wrapper:hover::before,
+  .pc-card-wrapper.active::before {
+    filter: none;
+    transform: none;
+  }
+  
+  .pc-card:hover,
+  .pc-card.active {
+    transform: translate3d(0, 0, 0.1px);
+  }
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ensure proper scrolling on mobile */
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
 
   .pc-details {
     top: 2em;
@@ -392,16 +455,18 @@
     padding: 6px 12px;
     font-size: 11px;
   }
-}
+
 
 @media (max-width: 480px) {
   .pc-card {
-    height: 60svh;
-    max-height: 380px;
+    height: auto;
+    aspect-ratio: 0.9;
+    max-height: 400px;
   }
 
   .pc-details {
-    top: 1.5em;
+    top: 1.25em;
+    padding: 0.5em;
   }
 
   .pc-details h3 {
