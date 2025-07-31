@@ -32,10 +32,7 @@
   perspective: 500px;
   transform: translate3d(0, 0, 0.1px);
   position: relative;
-  touch-action: pan-y;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
+  touch-action: none;
 }
 
 .pc-card-wrapper::before {
@@ -64,9 +61,8 @@
 }
 
 .pc-card {
-  height: 70vh;
-  max-height: 580px;
-  min-height: 400px;
+  height: 80svh;
+  max-height: 540px;
   display: grid;
   aspect-ratio: 0.718;
   border-radius: var(--card-radius);
@@ -189,12 +185,9 @@
   width: 100%;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%) scale(0.9);
-  bottom: 0;
+  transform: translateX(-50%) scale(1);
+  bottom: 2px;
   opacity: calc(1.75 - var(--pointer-from-center));
-  max-height: 55vh;
-  object-fit: contain;
-  object-position: bottom;
 }
 
 .pc-avatar-content::before {
@@ -258,14 +251,14 @@
 }
 
 .pc-handle {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1;
 }
 
 .pc-status {
-  font-size: 1.25rem;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1;
 }
@@ -353,48 +346,11 @@
   }
 }
 
-/* Mobile Optimizations */
-@media (max-width: 640px) {
-  .pc-card {
-    height: 85svh;
-    max-height: 580px;
-    min-height: 450px;
-    aspect-ratio: 0.8;
-    border-radius: 20px;
-  }
-  
-  .pc-card-wrapper {
-    touch-action: pan-y;
-  }
-  
-  .pc-card-wrapper::before {
-    inset: -5px;
-    filter: contrast(1.5) saturate(1.5) blur(24px);
-  }
-  
-  .pc-card:hover::before,
-  .pc-card.active::before {
-    filter: contrast(1.2) saturate(1.5) blur(30px);
-    transform: scale(0.95) translate3d(0, 0, 0.1px);
-  }
-  
-  .pc-inside {
-    background-color: rgba(0, 0, 0, 0.92);
-  }
-  
-  .pc-avatar-content .avatar {
-    max-height: 50vh;
-    transform: translateX(-50%) scale(0.9);
-  }
-}
-
-/* Tablet Optimizations */
-@media (min-width: 641px) and (max-width: 1024px) {
+@media (max-width: 768px) {
   .pc-card {
     height: 70svh;
-    max-height: 500px;
+    max-height: 450px;
   }
-}
 
   .pc-details {
     top: 2em;
@@ -436,6 +392,7 @@
     padding: 6px 12px;
     font-size: 11px;
   }
+}
 
 @media (max-width: 480px) {
   .pc-card {
