@@ -314,9 +314,9 @@
 .pc-details p {
   font-weight: 600;
   position: relative;
-  top: -12px;
+  top: -8px;
   white-space: nowrap;
-  font-size: 16px;
+  font-size: 24px;
   margin: 0 auto;
   width: min-content;
   background-image: linear-gradient(to bottom, #fff, #4a4ac0);

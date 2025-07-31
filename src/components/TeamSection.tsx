@@ -45,7 +45,7 @@ const TeamSection = () => {
       linkedin: 'https://www.linkedin.com/in/s-lakshmi-priya-49408b304?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
     },
     {
-      name: 'Mogilipalem Charitha',
+      name: 'Charitha',
       role: 'Event Lead',
       description: 'Collaboratively organizes workshops, events, and competitions.',
       avatar: charithaImg,
@@ -62,7 +62,7 @@ const TeamSection = () => {
       linkedin: 'https://www.linkedin.com/in/s-akshay-sagar-6ab6402bb/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
     },
     {
-      name: 'Sreesha Thummalapalli',
+      name: 'Sreesha',
       role: 'Community Outreach Lead',
       description: 'Manages promotions, communications, and student engagement.',
       avatar: sreeshaImg,

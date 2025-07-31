@@ -1,5 +1,4 @@
 import React from 'react';
-import SplashCursor from './SplashCursor';
 import { Link } from 'react-router-dom';
 import { ChevronDown, Code2 } from 'lucide-react';
 import FuzzyText from './FuzzyText';
@@ -8,14 +7,21 @@ import GradientText from './GradientText';
 const HeroSection = () => {
   return (
     <section className="min-h-screen matrix-bg flex items-center justify-center relative px-4 sm:px-6">
-      <SplashCursor />
       <div className="container mx-auto text-center">
         <div className="max-w-4xl mx-auto px-2 sm:px-4">
-          <div className="flex flex-col items-center justify-center mb-4 sm:mb-6">
-            <div className="text-lg sm:text-xl md:text-2xl text-gray-300 font-medium mb-2 sm:mb-3">
-              <p className="mb-1">Centre for Future Skills</p>
-              <p className="text-emerald-400">School of Engineering</p>
-            </div>
+          <div className="flex flex-col items-center justify-center mb-4 sm:mb-6 mt-24">
+          <div className="mb-10 sm:mb-10">
+            <GradientText 
+              colors={['#40ffaa', '#4079ff', '#40ffaa', '#4079ff', '#40ffaa']}
+              animationSpeed={8}
+              showBorder={false}
+              className="text-xl sm:text-2xl md:text-3xl font-bold"
+            >
+              Centre for Future Skills
+              <br />
+              School of Engineering
+            </GradientText>
+          </div>
             <Code2 className="h-12 w-12 sm:h-16 sm:w-16 text-emerald-400 mt-2" />
           </div>
           
