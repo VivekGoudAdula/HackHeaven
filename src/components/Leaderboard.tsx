@@ -1,134 +1,41 @@
 import React from 'react';
-import { Trophy, Award, Star, Medal } from 'lucide-react';
+import { Trophy } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-interface LeaderboardEntry {
-  id: number;
-  name: string;
-  rollNumber: string;
-  year: string;
-  branch: string;
-  points: number;
-}
-
-const Leaderboard: React.FC = () => {
-  const leaderboardData: LeaderboardEntry[] = [
-    {
-      id: 1,
-      name: 'Polla Vishnu Vardhan',
-      rollNumber: '231U1R2002',
-      year: 'Junior Year',
-      branch: 'CSE (AIML)',
-      points: 1000
-    },
-    {
-      id: 2,
-      name: 'Akshay Sagar',
-      rollNumber: '231U1R1023',
-      year: 'Junior Year',
-      branch: 'CSE',
-      points: 930
-    },
-    {
-      id: 3,
-      name: 'Sreesha Thummalapalli',
-      rollNumber: '241U1R3013',
-      year: 'Sophomore Year',
-      branch: 'CSE (DS)',
-      points: 910
-    },
-    {
-      id: 4,
-      name: 'Mandula Nomika',
-      rollNumber: '231U1R2008',
-      year: 'Junior Year',
-      branch: 'CSE (AIML)',
-      points: 900
-    },
-    {
-      id: 5,
-      name: 'Ganesh Suthoju',
-      rollNumber: '231U1R1048',
-      year: 'Junior Year',
-      branch: 'CSE',
-      points: 890
-    },
-    {
-      id: 6,
-      name: 'Jai Krishna Penaganti',
-      rollNumber: '241U1R1014',
-      year: 'Sophomore Year',
-      branch: 'CSE (AIML)',
-      points: 885
-    },
-    {
-      id: 7,
-      name: 'Sai Poojitha',
-      rollNumber: '241U1R64',
-      year: 'Junior Year',
-      branch: 'CSE (AIML)',
-      points: 870
-    }
-  ];
-
-  const getMedal = (position: number) => {
-    switch (position) {
-      case 1: return <Medal className="h-5 w-5 text-yellow-400" />;
-      case 2: return <Medal className="h-5 w-5 text-gray-300" />;
-      case 3: return <Medal className="h-5 w-5 text-amber-600" />;
-      default: return <span className="text-gray-400">{position}</span>;
-    }
-  };
-
+const Leaderboard = () => {
   return (
-    <section id="leaderboard" className="py-16 bg-gray-900 text-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          <span className="bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent">
+    <section id="leaderboard" className="py-12 md:py-20 bg-gray-800">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 gradient-text">
             Leaderboard
-          </span>
-        </h2>
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+            <span className="text-emerald-400 font-medium sm:font-semibold">Competitions | Rankings | Achievements</span>
+          </p>
+        </div>
         
-        <div className="max-w-4xl mx-auto bg-gray-800 rounded-xl shadow-2xl overflow-hidden">
-          <div className="grid grid-cols-12 bg-gray-700 py-4 px-6 font-semibold text-gray-200">
-            <div className="col-span-1">#</div>
-            <div className="col-span-5">Name</div>
-            <div className="col-span-3">Details</div>
-            <div className="col-span-3 text-right">Points</div>
-          </div>
-          
-          {leaderboardData.map((entry, index) => (
-            <div 
-              key={entry.id}
-              className={`grid grid-cols-12 items-center py-4 px-6 border-b border-gray-700 hover:bg-gray-750 transition-colors ${
-                index === 0 ? 'bg-gradient-to-r from-yellow-900/30 to-transparent' : ''
-              }`}
-            >
-              <div className="col-span-1 flex items-center justify-center">
-                {getMedal(index + 1)}
-              </div>
-              <div className="col-span-5 font-medium">
-                <div className="flex items-center gap-2">
-                  {index === 0 && <Award className="h-5 w-5 text-yellow-400" />}
-                  {entry.name}
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-gray-900 rounded-xl overflow-hidden border border-gray-700 shadow-xl">
+            <div className="p-8 md:p-10 text-center">
+              <div className="flex justify-center mb-6">
+                <div className="bg-gradient-to-br from-yellow-400 to-amber-500 p-4 rounded-full shadow-lg">
+                  <Trophy className="w-12 h-12 text-white" strokeWidth={1.5} />
                 </div>
-                <div className="text-sm text-gray-400">{entry.rollNumber}</div>
               </div>
-              <div className="col-span-3 text-sm text-gray-300">
-                <div>{entry.year}</div>
-                <div className="text-gray-400">{entry.branch}</div>
-              </div>
-              <div className="col-span-3 text-right">
-                <div className="inline-flex items-center bg-gray-700 px-3 py-1 rounded-full">
-                  <Star className="h-4 w-4 text-yellow-400 mr-1" />
-                  <span className="font-bold">{entry.points}</span>
-                  <span className="ml-1 text-sm text-gray-300">PTS</span>
-                </div>
+              
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Upcoming Events</h3>
+              <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+                Get ready to showcase your coding skills in our upcoming events! 
+                Compete with peers, solve challenging problems, and earn your spot at the top of the leaderboard.
+              </p>
+              
+              <div className="mt-12 pt-8 border-t border-gray-700">
+                <p className="text-gray-400 text-sm md:text-base">
+                  Stay tuned for more details about these events. Follow us on social media for updates!
+                </p>
               </div>
             </div>
-          ))}
-          
-          <div className="p-6 text-center text-gray-400 text-sm">
-            <p>Last updated: {new Date().toLocaleDateString()}</p>
           </div>
         </div>
       </div>
