@@ -12,7 +12,7 @@ const Leaderboard = () => {
           </h2>
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
             <span className="text-emerald-400 font-medium sm:font-semibold">Competitions | Rankings | Achievements</span>
-          </p>
+          </p>  
         </div>
         
         <div className="max-w-5xl mx-auto">

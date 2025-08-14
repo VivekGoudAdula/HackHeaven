@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Calendar, Clock, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Calendar, Clock, MapPin, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const EventsSection = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -16,12 +17,13 @@ const EventsSection = () => {
     },
     {
       id: 2,
-      title: 'Syntax Showdown',
-      date: new Date(2025, 7, 14),
-      description: 'Test your coding skills in this fast-paced coding competition with various programming challenges',
+      title: '40-IN-40: CAN YOU BEAT THE CLOCK?',
+      date: new Date(2025, 7, 22),
+      description: '40-in-40 is to create a fast-paced, beginner-friendly coding and logic quiz that encourages students to think quickly, apply their basic programming knowledge',
       tag: 'Contest',
       time: '3:00 PM - 4:30 PM',
-      location: 'TBA'
+      location: 'TBA',
+      link: '/events/40in40'
     },
     {
       id: 3,
@@ -149,9 +151,9 @@ const EventsSection = () => {
           <div className="space-y-3 sm:space-y-4">
             {currentMonthEvents.length > 0 ? (
               currentMonthEvents.map((event) => (
-                <div key={event.id} className="bg-gray-900 p-4 sm:p-6 rounded-lg border border-gray-600 card-hover">
+                <div key={event.id} className="group bg-gray-900 p-4 sm:p-6 rounded-lg border border-gray-600 card-hover relative overflow-hidden">
                   <div className="flex flex-wrap items-start justify-between mb-3 sm:mb-4">
-                    <div className="flex-1 min-w-0">
+                    <div className="flex-1 min-w-0 relative z-20">
                       <div className="flex flex-wrap items-center mb-2 gap-2">
                         <h4 className="text-lg sm:text-xl font-bold text-white break-words">{event.title}</h4>
                         <span className={`px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold text-white ${tagColors[event.tag as keyof typeof tagColors]} whitespace-nowrap`}>
@@ -162,7 +164,7 @@ const EventsSection = () => {
                     </div>
                   </div>
                   
-                  <div className="grid grid-cols-1 sm:flex sm:flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-400">
+                  <div className="grid grid-cols-1 sm:flex sm:flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-400 relative">
                     <div className="flex items-center">
                       <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-1.5 sm:mr-2 flex-shrink-0" />
                       <span>{event.date.toLocaleDateString()}</span>
@@ -175,6 +177,17 @@ const EventsSection = () => {
                       <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-1.5 sm:mr-2 flex-shrink-0" />
                       <span className="truncate">{event.location}</span>
                     </div>
+                    {event.link && (
+                      <Link 
+                        to={event.link}
+                        className="absolute right-0 -bottom-1 z-30"
+                        aria-label={`View details about ${event.title}`}
+                      >
+                        <div className="flex items-center text-sm sm:text-base font-medium text-emerald-400 bg-gray-800/90 px-4 py-2 rounded-lg border border-emerald-500/30 hover:bg-emerald-500/10 transition-colors">
+                          Register Now! <ArrowRight className="ml-2 h-4 w-4" />
+                        </div>
+                      </Link>
+                    )}
                   </div>
                 </div>
               ))
