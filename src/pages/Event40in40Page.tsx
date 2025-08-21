@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Event40in40Page = () => {
   return (
-    <div className="min-h-screen bg-gray-900 text-white pt-24 md:pt-32 pb-12 px-4 sm:px-6">
+    <div className="min-h-screen bg-gray-900 text-white py-12 md:py-20 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent">
@@ -89,25 +89,26 @@ const Event40in40Page = () => {
             </section>
           </div>
 
-          <div className="lg:col-span-5 w-full flex items-center justify-center">
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700 w-full max-w-md text-center">
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-emerald-400 mb-2">Ready to Test Your Skills?</h3>
-                  <p className="text-gray-300 mb-6">
-                    Take the 40-in-40 challenge now! You'll have 40 minutes to answer 40 questions. 
-                    The quiz will automatically submit when you exit fullscreen mode.
-                  </p>
-                </div>
-                <Link 
-                  to="/quiz"
-                  className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-semibold rounded-md text-white bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 transition-all duration-200 transform hover:scale-105"
-                >
-                  Take Quiz Now
-                </Link>
-                <p className="text-sm text-gray-400 mt-4">
-                  Note: The quiz will open in fullscreen mode. Please allow fullscreen when prompted.
+          <div className="lg:col-span-5 w-full">
+            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border border-gray-700 w-full h-full flex flex-col">
+              <div className="mb-4">
+                <h3 className="text-xl font-bold text-emerald-400">Registration</h3>
+                <p className="text-gray-300 mt-2">
+                  Secure your spot in this exciting coding challenge! Register now to test your skills against the clock.
                 </p>
+              </div>
+              <div className="flex-1 overflow-hidden rounded-lg">
+                <iframe 
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSfHoBtdyD5wwyEkEoGOMv1Mc33GPVzQH0dHIfggBGcvGUYtYQ/viewform?embedded=true" 
+                  className="w-full h-full min-h-[500px] border-0" 
+                  frameBorder="0" 
+                  marginHeight={0} 
+                  marginWidth={0}
+                  title="40-in-40 Registration Form"
+                  style={{ minWidth: '100%' }}
+                >
+                  Loading…
+                </iframe>
               </div>
             </div>
           </div>
