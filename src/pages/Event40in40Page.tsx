@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Event40in40Page = () => {
   return (
-    <div className="min-h-screen bg-gray-900 text-white py-12 md:py-20 px-4 sm:px-6">
+    <div className="min-h-screen bg-gray-900 text-white pt-24 md:pt-32 pb-12 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent">
@@ -13,7 +13,7 @@ const Event40in40Page = () => {
           <div className="flex flex-wrap justify-center gap-4 mt-6 text-sm md:text-base">
             <div className="flex items-center bg-gray-800/50 px-4 py-2 rounded-lg">
               <Calendar className="w-4 h-4 mr-2 text-emerald-400" />
-              <span>August 22, 2025</span>
+              <span>21st August 2025 – Junior Year Students<br/>29th August 2025 – Sophomore Year Students</span>
             </div>
             <div className="flex items-center bg-gray-800/50 px-4 py-2 rounded-lg">
               <Clock className="w-4 h-4 mr-2 text-emerald-400" />
