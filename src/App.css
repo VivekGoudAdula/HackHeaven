@@ -69,3 +69,82 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Hide navbar in fullscreen mode for quiz */
+body.quiz-fullscreen header {
+  display: none !important;
+}
+
+/* Ensure the quiz takes full height */
+.quiz-fullscreen #root {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Neon Glow Effects */
+@keyframes neon-glow-green {
+  from {
+    box-shadow: 
+      0 0 5px #22c55e,
+      0 0 10px #22c55e,
+      0 0 20px #22c55e,
+      0 0 40px #22c55e,
+      0 0 80px #22c55e,
+      inset 0 0 10px #22c55e,
+      inset 0 0 20px #22c55e;
+  }
+  to {
+    box-shadow: 
+      0 0 10px #22c55e,
+      0 0 20px #22c55e,
+      0 0 40px #22c55e,
+      0 0 80px #22c55e,
+      0 0 160px #22c55e,
+      inset 0 0 20px #22c55e,
+      inset 0 0 40px #22c55e;
+  }
+}
+
+@keyframes neon-glow-red {
+  from {
+    box-shadow: 
+      0 0 5px #ef4444,
+      0 0 10px #ef4444,
+      0 0 20px #ef4444,
+      0 0 40px #ef4444,
+      0 0 80px #ef4444,
+      inset 0 0 10px #ef4444,
+      inset 0 0 20px #ef4444;
+  }
+  to {
+    box-shadow: 
+      0 0 10px #ef4444,
+      0 0 20px #ef4444,
+      0 0 40px #ef4444,
+      0 0 80px #ef4444,
+      0 0 160px #ef4444,
+      inset 0 0 20px #ef4444,
+      inset 0 0 40px #ef4444;
+  }
+}
+
+.neon-glow-green, .neon-glow-red {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1000;
+  border: none !important;
+  animation: neon-glow-green 1.5s ease-in-out infinite alternate;
+}
+
+.neon-glow-red {
+  animation-name: neon-glow-red;
+}
+
+/* Make sure the glow is visible on top of other content */
+.relative {
+  position: relative;
+}
