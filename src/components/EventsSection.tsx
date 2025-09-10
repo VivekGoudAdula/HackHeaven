@@ -22,20 +22,21 @@ const EventsSection = () => {
       description: '40-in-40 is to create a fast-paced, beginner-friendly coding and logic quiz that encourages students to think quickly, apply their basic programming knowledge',
       tag: 'Contest',
       time: '3:00 PM - 4:30 PM',
-      location: 'TBA',
+      location: 'Block A - A306, Aurora University',
       link: '/events/40in40'
     },
     {
       id: 3,
-      title: 'Git, GitHub & You',
-      date: new Date(2025, 8, 11),
-      description: 'Learn version control with Git and GitHub, from basics to advanced workflows',
-      tag: 'Workshop',
-      time: '3:00 PM - 4:30 PM',
-      location: 'TBA'
+      title: 'Build-a-thon: Design. Develop. Deploy.',
+      date: new Date(2025, 8, 18),
+      description: 'Transform ideas into fully functional frontend web applications in this one-day hackathon',
+      tag: 'Hackathon',
+      time: '9:30 AM - 4:30 PM',
+      location: 'Block A - A306, Aurora University',
+      link: '/events/build-a-thon'
     },
     {
-      id: 4,
+      id: 5,
       title: 'Code Golf',
       date: new Date(2025, 9, 9),
       description: 'Solve coding problems using the fewest characters possible in this fun competition',
@@ -44,7 +45,7 @@ const EventsSection = () => {
       location: 'TBA'
     },
     {
-      id: 5,
+      id: 6,
       title: 'Web Rush 101',
       date: new Date(2025, 10, 13),
       description: 'Build a Stunning Web App using HTML, CSS & a Pinch of JS — Team-Based Challenge!',
@@ -53,7 +54,7 @@ const EventsSection = () => {
       location: 'TBA'
     },
     {
-      id: 6,
+      id: 7,
       title: 'Hack-it-in-2',
       date: new Date(2025, 11, 11),
       description: 'Two-hour hackathon to build something amazing in a short time',
@@ -62,7 +63,7 @@ const EventsSection = () => {
       location: 'TBA'
     },
     {
-      id: 7,
+      id: 8,
       title: 'Algo Combat',
       date: new Date(2026, 0, 8),
       description: 'Competitive programming contest focusing on algorithms and data structures',
@@ -71,7 +72,7 @@ const EventsSection = () => {
       location: 'TBA'
     },
     {
-      id: 8,
+      id: 9,
       title: 'Logic Over UI',
       date: new Date(2026, 1, 12),
       description: 'Focus on problem-solving and logic building with minimal UI elements',
@@ -80,7 +81,7 @@ const EventsSection = () => {
       location: 'TBA'
     },
     {
-      id: 9,
+      id: 10,
       title: 'Design Jam',
       date: new Date(2026, 2, 12),
       description: 'Hands-on session on UI/UX design principles and tools',
@@ -92,9 +93,9 @@ const EventsSection = () => {
 
   const tagColors = {
     Workshop: 'bg-blue-500',
-    Hackathon: 'bg-purple-500',
+    Hackathon: 'bg-purple-500 hover:bg-purple-600',
     Contest: 'bg-orange-500',
-    Inaugural: 'bg-green-400'
+    Inaugural: 'bg-green-400 hover:bg-green-500',
   };
 
   const monthNames = [
