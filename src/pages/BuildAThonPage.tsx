@@ -110,8 +110,8 @@ const BuildAThonPage = () => {
               </div>
               <h2 className="text-3xl font-bold bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">Prizes & Rewards</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-              <div className="bg-gradient-to-b from-gray-800 to-gray-900 p-6 rounded-xl border border-purple-500/30 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 transform hover:-translate-y-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-6">
+              <div className="bg-gradient-to-b from-gray-800 to-gray-900 p-4 sm:p-5 rounded-xl border border-purple-500/30 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col">
                 <div className="bg-purple-500/20 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <Trophy className="w-8 h-8 text-purple-400" />
                 </div>
@@ -119,27 +119,50 @@ const BuildAThonPage = () => {
                 <p className="text-gray-300 text-center text-sm">Certificate of Excellence</p>
               </div>
               
-              <div className="bg-gradient-to-b from-gray-800 to-gray-900 p-6 rounded-xl border border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-1">
+              <div className="bg-gradient-to-b from-gray-800 to-gray-900 p-4 sm:p-5 rounded-xl border border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col">
                 <div className="bg-blue-500/20 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <Award className="w-8 h-8 text-blue-400" />
                 </div>
                 <h3 className="text-xl font-bold text-center text-white mb-2">Runner-Up Team</h3>
-                <p className="text-gray-300 text-center text-sm">Certificate of Achievement</p>
+                <p className="text-gray-300 text-center text-sm">Certificate of Excellence</p>
               </div>
               
-              <div className="bg-gradient-to-b from-gray-800 to-gray-900 p-6 rounded-xl border border-amber-500/30 hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1">
+              <div className="bg-gradient-to-b from-gray-800 to-gray-900 p-4 sm:p-5 rounded-xl border border-amber-500/30 hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col">
                 <div className="bg-amber-500/20 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <Layout className="w-8 h-8 text-amber-400" />
                 </div>
                 <h3 className="text-xl font-bold text-center text-white mb-2">Best UI/UX Design</h3>
                 <p className="text-gray-300 text-center text-sm">Special Recognition Certificate</p>
               </div>
+
+              <div className="bg-gradient-to-b from-gray-800 to-gray-900 p-4 sm:p-5 rounded-xl border border-green-500/30 hover:shadow-lg hover:shadow-green-500/20 transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col">
+                <div className="bg-green-500/20 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <Code className="w-8 h-8 text-green-400" />
+                </div>
+                <h3 className="text-xl font-bold text-center text-white mb-2">Most Innovative Approach</h3>
+                <p className="text-gray-300 text-center text-sm">Special Recognition Certificate</p>
+              </div>
+
+              <div className="bg-gradient-to-b from-gray-800 to-gray-900 p-4 sm:p-5 rounded-xl border border-red-500/30 hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col">
+                <div className="bg-red-500/20 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <Code className="w-8 h-8 text-red-400" />
+                </div>
+                <h3 className="text-xl font-bold text-center text-white mb-2">Best Technical Implementation</h3>
+                <p className="text-gray-300 text-center text-sm">Special Recognition Certificate</p>
+              </div>
+
             </div>
-            <p className="text-center mt-8 text-gray-300 text-sm">
-              <span className="inline-block px-3 py-1 bg-gray-800/50 rounded-full">
-                All participants will receive e-certificates!
-              </span>
-            </p>
+            <div className="mt-8">
+              <div className="bg-gradient-to-b from-gray-800 to-gray-900 p-6 rounded-xl border border-purple-500/30 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 transform hover:-translate-y-1 max-w-md mx-auto">
+                <div className="flex flex-col items-center">
+                  <div className="bg-purple-500/20 p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                    <Award className="w-8 h-8 text-purple-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-center text-white mb-2">All Participants</h3>
+                  <p className="text-gray-300 text-center text-sm">Will receive a Participation Certificate!</p>
+                </div>
+              </div>
+            </div>
           </section>
         </div>
 
