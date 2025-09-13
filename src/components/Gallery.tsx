@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { X, Image as ImageIcon, Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
 import InauguralPoster from './inauguralposter.jpg';
 import NewImage from './image.png';
+import JuniorsImage from './JUNIORS.png';
+import SophomoresImage from './SOPHOMORES.jpg';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface GalleryItem {
@@ -15,6 +17,11 @@ interface GalleryItem {
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const scrollSpeed = 0.5; // pixels per frame
+  let animationFrameId = useRef<number>();
+  let lastTimestamp = useRef<number>();
 
   const galleryItems: GalleryItem[] = [
     {
@@ -30,6 +37,20 @@ const Gallery = () => {
       image: NewImage,
       description: 'CodeVerse Inaugural by Mrs. Jayasri Mam and Mr. K. Ravikanth Sir',
       date: '31-07-2025'
+    },
+    {
+      id: 3,
+      title: '40-in-40: Can You Beat The Clock? (Juniors)',
+      image: JuniorsImage,
+      description: '40-in-40 coding challenge for Junior Year Students',
+      date: '21-08-2025'
+    },
+    {
+      id: 4,
+      title: '40-in-40: Can You Beat The Clock? (Sophomores)',
+      image: SophomoresImage,
+      description: '40-in-40 coding challenge for Sophomore Year Students',
+      date: '29-08-2025'
     }
   ];
 
@@ -58,6 +79,39 @@ const Gallery = () => {
     setSelectedImage(galleryItems[newIndex]);
   };
 
+  const startAutoScroll = () => {
+    if (!scrollContainerRef.current) return;
+    
+    const scrollStep = () => {
+      if (!scrollContainerRef.current) return;
+      
+      const now = performance.now();
+      const deltaTime = lastTimestamp.current ? now - lastTimestamp.current : 16; // 60fps as fallback
+      lastTimestamp.current = now;
+      
+      scrollContainerRef.current.scrollLeft += scrollSpeed * (deltaTime / 16);
+      
+      // Reset scroll position when reaching the end
+      if (scrollContainerRef.current.scrollLeft >= scrollContainerRef.current.scrollWidth - scrollContainerRef.current.clientWidth) {
+        scrollContainerRef.current.scrollLeft = 0;
+      }
+      
+      animationFrameId.current = requestAnimationFrame(scrollStep);
+    };
+    
+    animationFrameId.current = requestAnimationFrame(scrollStep);
+  };
+  
+  // Start auto-scroll on mount
+  useEffect(() => {
+    startAutoScroll();
+    return () => {
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
+    };
+  }, []);
+
   return (
     <section id="gallery" className="py-12 md:py-20 bg-gray-800">
       <div className="container mx-auto px-4 sm:px-6">
@@ -70,39 +124,84 @@ const Gallery = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-5 max-w-6xl mx-auto">
-          {galleryItems.map((item, index) => (
-            <motion.div 
-              key={item.id}
-              className="group relative overflow-hidden rounded-lg cursor-pointer card-hover border border-gray-700"
-              onClick={() => openModal(item, index)}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.2, delay: index * 0.05 }}
-            >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img 
-                  src={item.image} 
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-end p-3">
-                <h3 className="text-white font-semibold text-sm">{item.title}</h3>
-                <div className="text-xs text-emerald-400 mt-0.5">{item.date}</div>
-              </div>
-              <div className="absolute top-2 right-2 bg-gray-900/80 backdrop-blur-sm rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <ImageIcon className="w-3.5 h-3.5 text-white" />
-              </div>
-            </motion.div>
-          ))}
+        <div 
+          className="relative overflow-hidden pb-4 -mx-4"
+          // Removed hover pause functionality
+        >
+          <div 
+            ref={scrollContainerRef}
+            className="flex space-x-6 md:space-x-10 px-4 w-max scrolling-container"
+          >
+            {[...galleryItems, ...galleryItems, ...galleryItems].map((item, index) => (
+              <motion.div 
+                key={`${item.id}-${index}`}
+                className="group relative overflow-hidden rounded-lg cursor-pointer card-hover border border-gray-700 flex-shrink-0 w-96"
+                onClick={() => openModal(item, index % galleryItems.length)}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.2, delay: (index % galleryItems.length) * 0.05 }}
+              >
+                <div className="aspect-[4/3] overflow-hidden w-full">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-end p-3">
+                  <h3 className="text-white font-semibold text-sm line-clamp-2">{item.title}</h3>
+                  <div className="text-xs text-emerald-400 mt-0.5">{item.date}</div>
+                </div>
+                <div className="absolute top-2 right-2 bg-gray-900/80 backdrop-blur-sm rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <ImageIcon className="w-3.5 h-3.5 text-white" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          {/* Gradient fade effect on the right side */}
+          <div className="absolute top-0 right-0 bottom-0 w-24 bg-gradient-to-l from-gray-800 to-transparent pointer-events-none"></div>
+          
+          {/* Gradient fade effect on the left side */}
+          <div className="absolute top-0 left-0 bottom-0 w-24 bg-gradient-to-r from-gray-800 to-transparent pointer-events-none"></div>
         </div>
       </div>
+      
+      <style jsx>{`
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(calc(-250px * ${galleryItems.length})); }
+        }
+        
+        .scrolling-container {
+          animation: scroll ${galleryItems.length * 8}s linear infinite;
+        }
+        
+        .paused {
+          animation-play-state: paused;
+        }
+        
+        .card-hover {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .gradient-text {
+          background: linear-gradient(90deg, #10B981, #3B82F6);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: inline-block;
+        }
+      `}</style>
 
       {/* Modal */}
       <AnimatePresence>
-        {selectedImage && (
+        {selectedImage && selectedImage.image && selectedImage.title && (
           <motion.div 
             className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
             onClick={closeModal}
@@ -128,23 +227,24 @@ const Gallery = () => {
               </button>
               <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden shadow-2xl border border-gray-700/50">
                 <div className="max-h-[70vh] overflow-hidden">
-                  <img
-                    src={selectedImage.image}
-                    alt={selectedImage.title}
-                    className="w-full h-full max-h-[70vh] object-contain"
+                  <img 
+                    src={selectedImage?.image} 
+                    alt={selectedImage?.title}
+                    className="w-full h-full object-contain max-h-[60vh]"
                   />
                 </div>
                 <div className="p-6 bg-gradient-to-r from-gray-900/95 to-gray-800/95 border-t border-gray-700/50">
                   <div className="flex items-start justify-between">
                     <div>
-                      <h3 className="text-white font-bold text-xl bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
+                      <h3 className="text-white font-bold text-xl bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent mb-2">
                         {selectedImage.title}
                       </h3>
-                      <p className="text-gray-300 text-sm mt-1 max-w-2xl">{selectedImage.description}</p>
+                      <p className="text-gray-300">{selectedImage?.description}</p>
+                      <div className="flex items-center text-gray-400 mt-2">
+                        <Calendar className="w-4 h-4 mr-2" />
+                        <span>{selectedImage?.date}</span>
+                      </div>
                     </div>
-                    <span className="px-3 py-1 bg-gray-800/80 text-emerald-300 text-xs rounded-full border border-emerald-400/20">
-                      {selectedImage.date}
-                    </span>
                   </div>
                 </div>
               </div>
