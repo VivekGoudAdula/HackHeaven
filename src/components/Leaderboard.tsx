@@ -41,8 +41,8 @@ const Leaderboard = () => {
                         <span className="bg-yellow-500 text-yellow-900 text-xs font-bold px-2.5 py-0.5 rounded-full">WINNER</span>
                         <span className="text-yellow-400">🥇</span>
                       </div>
-                      <h4 className="text-xl font-bold text-white">SRUTHI ARAKALA</h4>
-                      <p className="text-gray-300 text-sm mt-1">DEPT. CSE(AIML)</p>
+                      <h4 className="text-xl font-bold text-white">Arakala Sruthi</h4>
+                      <p className="text-gray-300 text-sm mt-1">Roll No: 241U1R2011 | Dept: AIML</p>
                     </div>
                     
                     {/* Runner */}
@@ -51,8 +51,8 @@ const Leaderboard = () => {
                         <span className="bg-gray-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">RUNNER</span>
                         <span className="text-gray-400">🥈</span>
                       </div>
-                      <h4 className="text-xl font-bold text-white">BAYASANI SHASHANK REDDY</h4>
-                      <p className="text-gray-300 text-sm mt-1">DEPT. CSE</p>
+                      <h4 className="text-xl font-bold text-white">Bayasani Shashank Reddy</h4>
+                      <p className="text-gray-300 text-sm mt-1">Roll No: 241U1R1025 | Dept: CSE</p>
                     </div>
                   </div>
                 </div>
@@ -70,8 +70,8 @@ const Leaderboard = () => {
                         <span className="bg-yellow-500 text-yellow-900 text-xs font-bold px-2.5 py-0.5 rounded-full">WINNER</span>
                         <span className="text-yellow-400">🥇</span>
                       </div>
-                      <h4 className="text-xl font-bold text-white">PRANAY KUMAR</h4>
-                      <p className="text-gray-300 text-sm mt-1">DEPT. CSE</p>
+                      <h4 className="text-xl font-bold text-white">P. Pranay Kumar Reddy</h4>
+                      <p className="text-gray-300 text-sm mt-1">Roll No: 231U1R1012 | Dept: CSE</p>
                     </div>
                     
                     {/* Runner */}
@@ -80,8 +80,8 @@ const Leaderboard = () => {
                         <span className="bg-gray-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">RUNNER</span>
                         <span className="text-gray-400">🥈</span>
                       </div>
-                      <h4 className="text-xl font-bold text-white">PATUBANDLA REMAESH</h4>
-                      <p className="text-gray-300 text-sm mt-1">DEPT. CSE(AIML)</p>
+                      <h4 className="text-xl font-bold text-white">Patabandula Ramesh</h4>
+                      <p className="text-gray-300 text-sm mt-1">Roll No: 231U1R2001 | Dept: AIML</p>
                     </div>
                   </div>
                 </div>
