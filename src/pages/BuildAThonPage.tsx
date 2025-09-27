@@ -1,114 +1,94 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import Waves from '../components/Waves';
-import '@fontsource/poppins/400.css';
-import '@fontsource/poppins/700.css';
-import '@fontsource/poppins/900.css';
+import { Calendar, Clock, MapPin, Award, Code, Users, Code2, LayoutTemplate, Smartphone, Database, Cloud, Zap, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const BuildAThonPage = () => {
   return (
-    <div className="relative min-h-screen bg-black text-white overflow-hidden font-sans">
-      <Waves
-        lineColor="#ffffff"
-        backgroundColor="rgba(0, 0, 0, 1)"
-        waveSpeedX={0.02}
-        waveSpeedY={0.01}
-        waveAmpX={40}
-        waveAmpY={20}
-        friction={0.9}
-        tension={0.01}
-        maxCursorMove={120}
-        xGap={12}
-        yGap={36}
-      />
-      
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10"
-            style={{
-              width: Math.random() * 300 + 100,
-              height: Math.random() * 300 + 100,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              filter: 'blur(40px)'
-            }}
-            animate={{
-              x: [0, Math.random() * 200 - 100, 0],
-              y: [0, Math.random() * 200 - 100, 0],
-              rotate: [0, Math.random() * 360],
-            }}
-            transition={{
-              duration: Math.random() * 30 + 30,
-              repeat: Infinity,
-              repeatType: 'reverse',
-              ease: 'easeInOut'
-            }}
-          />
-        ))}
-      </div>
+    <div className="min-h-screen bg-gray-900 text-white pt-24 md:pt-32 pb-12 px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
+            BUILD-A-THON
+          </h1>
+          <div className="flex flex-wrap justify-center gap-4 mt-6 text-sm md:text-base">
+            <div className="flex items-center bg-gray-800/50 px-4 py-2 rounded-lg">
+              <Calendar className="w-4 h-4 mr-2 text-purple-400" />
+              <span>18th September 2025</span>
+            </div>
+            <div className="flex items-center bg-gray-800/50 px-4 py-2 rounded-lg">
+              <Clock className="w-4 h-4 mr-2 text-purple-400" />
+              <span>9:30 AM - 5:00 PM</span>
+            </div>
+            <div className="flex items-center bg-gray-800/50 px-4 py-2 rounded-lg">
+              <MapPin className="w-4 h-4 mr-2 text-purple-400" />
+              <span>Seminar Hall, A202, A203, A210, A212 Block A, Aurora University</span>
+            </div>
+          </div>
+        </div>
 
-      <div className="relative z-10 min-h-screen w-full flex flex-col items-center justify-center p-4 sm:p-6">
-        <div className="w-full max-w-7xl mx-auto px-4">
-          <motion.div 
-            className="text-center w-full"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+        <div className="bg-purple-900/30 border border-purple-500/30 rounded-xl p-6 mb-8 max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-purple-400 mb-3">Event Completed! 🎉</h2>
+          <p className="text-gray-300 text-lg">
+            Thank you to all the participants for making Build-a-thon 2025 a great success!
+          </p>
+        </div>
+
+        {/* Winners Section */}
+        <section className="bg-gray-800/50 rounded-xl p-6 md:p-8 max-w-4xl mx-auto mb-8">
+          <h2 className="text-2xl font-bold mb-6 text-purple-400 text-center">🏆 Build-a-thon 2025 Winners</h2>
+          
+          <div className="space-y-8">
+            <div className="bg-gray-900/50 p-6 rounded-lg border border-purple-500/30">
+              <h3 className="text-xl font-bold text-yellow-400 mb-3">🏆 WINNERS</h3>
+              <p className="text-gray-300 text-lg">
+                Alturi Revanth Reddy, Poduva Dharantej Reddy, and Salvadi Sai Manoj
+              </p>
+              <p className="text-gray-400 mt-1">Chaitanya Bharathi Institute of Technology</p>
+            </div>
+
+            <div className="bg-gray-900/50 p-6 rounded-lg border border-gray-700">
+              <h3 className="text-xl font-bold text-gray-300 mb-3">🥈 RUNNERS-UP</h3>
+              <p className="text-gray-300 text-lg">
+                Rishendra, Jwalin, and M. Natvej
+              </p>
+              <p className="text-gray-400 mt-1">Aurora Deemed University</p>
+            </div>
+
+            <div className="bg-gray-900/50 p-6 rounded-lg border border-blue-500/30">
+              <h3 className="text-xl font-bold text-blue-400 mb-3">🎨 Best UI/UX Design</h3>
+              <p className="text-gray-300 text-lg">
+                K. Sai Hasini and Sowmya
+              </p>
+              <p className="text-gray-400 mt-1">Stanley College of Engineering and Technology for Women</p>
+            </div>
+
+            <div className="bg-gray-900/50 p-6 rounded-lg border border-green-500/30">
+              <h3 className="text-xl font-bold text-green-400 mb-3">💻 Best Technical Implementation</h3>
+              <p className="text-gray-300 text-lg">
+                K. Mohan Kumar, P. Anand Kumar and A. Balu Charan
+              </p>
+              <p className="text-gray-400 mt-1">TRR College of Technology</p>
+            </div>
+
+            <div className="bg-gray-900/50 p-6 rounded-lg border border-purple-500/30">
+              <h3 className="text-xl font-bold text-purple-400 mb-3">💡 Best Innovative Approach</h3>
+              <p className="text-gray-300 text-lg">
+                Tarun Parvathi, Sai Ram and Kusuma
+              </p>
+              <p className="text-gray-400 mt-1">Aurora Deemed University</p>
+            </div>
+          </div>
+        </section>
+
+
+        <div className="mt-12 text-center">
+          <Link 
+            to="/events" 
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 transition-colors duration-200"
           >
-            {/* Main Heading */}
-            <motion.h1 
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl 2xl:text-9xl font-black mb-8 sm:mb-12 text-white tracking-tight leading-tight"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8)' }}
-            >
-              BUILD-A-THON
-            </motion.h1>
-            
-            {/* Tagline */}
-            <motion.div 
-              className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 mb-12 sm:mb-16 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tight w-full"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-            >
-              <motion.span 
-                className="text-white inline-block whitespace-nowrap"
-                whileHover={{ scale: 1.05, y: -3 }}
-                transition={{ type: 'spring', stiffness: 500 }}
-              >
-                DESIGN
-              </motion.span>
-              <motion.span 
-                className="text-white inline-block whitespace-nowrap"
-                whileHover={{ scale: 1.05, y: -3 }}
-                transition={{ type: 'spring', stiffness: 500, delay: 0.1 }}
-              >
-                DEVELOP
-              </motion.span>
-              <motion.span 
-                className="text-white inline-block whitespace-nowrap"
-                whileHover={{ scale: 1.05, y: -3 }}
-                transition={{ type: 'spring', stiffness: 500, delay: 0.2 }}
-              >
-                DEPLOY
-              </motion.span>
-            </motion.div>
-            
-            {/* Event Date */}
-            <motion.div 
-              className="text-lg sm:text-xl md:text-2xl text-gray-300 font-medium mt-6 sm:mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-            >
-              September 18, 2025 | Aurora University
-            </motion.div>
-          </motion.div>
+            <ArrowLeft className="mr-2 h-5 w-5" />
+            Back to Events
+          </Link>
         </div>
       </div>
     </div>

@@ -149,23 +149,6 @@ const TeamSection = () => {
             ))}
           </div>
         </div>
-
-        <div className="mt-16 md:mt-20 text-center px-4">
-          <div className="bg-gray-900 p-6 md:p-8 rounded-xl border border-gray-700 max-w-3xl mx-auto">
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">Want to Join Our Team?</h3>
-            <p className="text-gray-300 text-sm md:text-base mb-6">
-              We're always looking for passionate individuals to help grow our community. 
-              Whether you're interested in organizing events, mentoring others, or contributing your technical skills, 
-              there's a place for you in our team.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 md:px-8 md:py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg active:scale-95 text-sm md:text-base"
-            >
-              Get Involved
-            </Link>
-          </div>
-        </div>
       </div>
     </section>
   );

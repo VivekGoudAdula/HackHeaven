@@ -6,7 +6,6 @@ import AboutPage from './pages/AboutPage';
 import EventsPage from './pages/EventsPage';
 import MembersPage from './pages/MembersPage';
 import ContactPage from './pages/ContactPage';
-import LeaderboardPage from './pages/LeaderboardPage';
 import GalleryPage from './pages/GalleryPage';
 import Event40in40Page from './pages/Event40in40Page';
 import BuildAThonPage from './pages/BuildAThonPage';
@@ -23,7 +22,6 @@ function App() {
           <Route path="/events" element={<EventsPage />} />
           <Route path="/members" element={<MembersPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/leaderboard" element={<LeaderboardPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/events/40in40" element={<Event40in40Page />} />
           <Route path="/events/build-a-thon" element={<BuildAThonPage />} />

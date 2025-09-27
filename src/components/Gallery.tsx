@@ -1,11 +1,15 @@
-import { useState, useEffect, useRef } from 'react';
-import { X, Image as ImageIcon, Calendar, ChevronLeft, ChevronRight, Upload, Loader2 } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { X, Image as ImageIcon, Calendar, Camera } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+// Import images
 import InauguralPoster from './inauguralposter.jpg';
 import NewImage from './image.png';
 import JuniorsImage from './JUNIORS.png';
 import SophomoresImage from './SOPHOMORES.jpg';
-import { motion, AnimatePresence } from 'framer-motion';
-import { v4 as uuidv4 } from 'uuid';
+import BuildAThonImage1 from './IMG_8300.jpg';
+import BuildAThonImage2 from './WhatsApp Image 2025-09-18 at 15.12.44_d6719907.jpg';
+import BuildAThonImage3 from './oooo.jpg';
 
 interface GalleryItem {
   id: number | string;
@@ -18,12 +22,9 @@ interface GalleryItem {
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [isUploading, setIsUploading] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const scrollSpeed = 0.5; // pixels per frame
-  const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([
+  const [galleryItems] = useState<GalleryItem[]>([
     {
       id: 1,
       title: 'CodeVerse Poster',
@@ -51,6 +52,27 @@ const Gallery = () => {
       image: SophomoresImage,
       description: '40-in-40 coding challenge for Sophomore Year Students',
       date: '29-08-2025'
+    },
+    {
+      id: 5,
+      title: 'BUILD-A-THON',
+      image: BuildAThonImage3,
+      description: 'Build-a-thon event where participants design, develop, and deploy projects',
+      date: '18-09-2025'
+    },
+    {
+      id: 6,
+      title: 'BUILD-A-THON',
+      image: BuildAThonImage1,
+      description: 'Participants working on their projects during the Build-a-thon',
+      date: '18-09-2025'
+    },
+    {
+      id: 7,
+      title: 'BUILD-A-THON',
+      image: BuildAThonImage2,
+      description: 'Showcasing innovative projects at the Build-a-thon',
+      date: '18-09-2025'
     }
   ]);
   
@@ -116,49 +138,6 @@ const Gallery = () => {
     };
   }, []);
 
-  // Handle file upload
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (!files || files.length === 0) return;
-
-    setIsUploading(true);
-    
-    // Process each file
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      
-      try {
-        // In a real app, you would upload to a server here
-        // For now, we'll create a local URL for the image
-        const imageUrl = URL.createObjectURL(file);
-        
-        // Add new image to gallery
-        const newItem: GalleryItem = {
-          id: uuidv4(), // Generate unique ID
-          title: `Uploaded Image ${galleryItems.length + i + 1}`,
-          image: imageUrl,
-          description: `Uploaded on ${new Date().toLocaleDateString()}`,
-          date: new Date().toLocaleDateString('en-GB')
-        };
-        
-        setGalleryItems(prev => [...prev, newItem]);
-      } catch (error) {
-        console.error('Error uploading image:', error);
-      }
-    }
-    
-    setIsUploading(false);
-    
-    // Reset file input
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
-  };
-
-  // Trigger file input click
-  const triggerFileInput = () => {
-    fileInputRef.current?.click();
-  };
 
   return (
     <section id="gallery" className="py-12 md:py-20 bg-gray-800">
@@ -170,33 +149,6 @@ const Gallery = () => {
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
             <span className="text-emerald-400 font-medium sm:font-semibold">Memories | Events | Highlights</span>
           </p>
-          <div className="mt-6">
-            <input
-              type="file"
-              ref={fileInputRef}
-              onChange={handleFileUpload}
-              accept="image/*"
-              multiple
-              className="hidden"
-            />
-            <button
-              onClick={triggerFileInput}
-              disabled={isUploading}
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isUploading ? (
-                <>
-                  <Loader2 className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" />
-                  Uploading...
-                </>
-              ) : (
-                <>
-                  <Upload className="-ml-1 mr-3 h-5 w-5" />
-                  Upload Images
-                </>
-              )}
-            </button>
-          </div>
         </div>
         
         <div 

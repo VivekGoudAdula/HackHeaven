@@ -31,8 +31,8 @@ const EventsSection = () => {
       date: new Date(2025, 8, 18),
       description: 'Transform ideas into fully functional frontend web applications in this one-day hackathon',
       tag: 'Hackathon',
-      time: '9:30 AM - 4:30 PM',
-      location: 'Block A - A306, Aurora University',
+      time: '9:30 AM - 5:00 PM',
+      location: 'Seminar Hall, A202, A203, A210, A212, Aurora University',
       link: '/events/build-a-thon'
     },
     {
@@ -185,7 +185,7 @@ const EventsSection = () => {
                         aria-label={`View details about ${event.title}`}
                       >
                         <div className="flex items-center text-sm sm:text-base font-medium text-emerald-400 bg-gray-800/90 px-4 py-2 rounded-lg border border-emerald-500/30 hover:bg-emerald-500/10 transition-colors">
-                          Register Now! <ArrowRight className="ml-2 h-4 w-4" />
+                          View Details <ArrowRight className="ml-2 h-4 w-4" />
                         </div>
                       </Link>
                     )}
